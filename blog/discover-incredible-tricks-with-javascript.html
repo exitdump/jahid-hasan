@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Incredible Tricks with JavaScript — Jahid Hasan</title>
+  <meta name="description" content="Practical JavaScript tricks — optional chaining, nullish coalescing, destructuring, Sets, Object.fromEntries and more — to write shorter, cleaner code.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Discover Incredible Tricks with JavaScript">
+  <meta property="og:description" content="Practical JavaScript tricks to write shorter, cleaner code.">
+  <meta property="og:image" content="../assets/images/work/blog-js-tricks.svg">
+  <link rel="icon" href="../assets/images/avatar.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body data-active-nav="blog">
+  <div class="progress" aria-hidden="true"><span data-progress></span></div>
+
+  <a href="../" class="badge" data-nav="home" aria-label="Home">JH</a>
+  <button class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="switcher" data-switcher>
+    <button class="switcher-toggle" data-switcher-toggle aria-label="Theme colors"><i class="fa-solid fa-gear"></i></button>
+    <div class="switcher-panel">
+      <p>Accent color</p>
+      <div class="swatches">
+        <button style="--c:#f4a641" data-color="#f4a641" aria-label="Gold"></button>
+        <button style="--c:#2ec4b6" data-color="#2ec4b6" aria-label="Teal"></button>
+        <button style="--c:#ff6b6b" data-color="#ff6b6b" aria-label="Coral"></button>
+        <button style="--c:#8e7cf0" data-color="#8e7cf0" aria-label="Violet"></button>
+        <button style="--c:#4aa3ff" data-color="#4aa3ff" aria-label="Blue"></button>
+        <button style="--c:#7bc74d" data-color="#7bc74d" aria-label="Green"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu" data-menu>
+    <nav class="menu-nav">
+      <a href="../" data-nav="home"><i class="fa-solid fa-house"></i><span>Home</span></a>
+      <a href="../#about" data-nav="about"><i class="fa-solid fa-user"></i><span>About</span></a>
+      <a href="../#resume" data-nav="resume"><i class="fa-solid fa-address-card"></i><span>Resume</span></a>
+      <a href="../#portfolio" data-nav="portfolio"><i class="fa-solid fa-briefcase"></i><span>Portfolio</span></a>
+      <a href="../#blog" data-nav="blog"><i class="fa-solid fa-book"></i><span>Blog</span></a>
+      <a href="../#contact" data-nav="contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+    </nav>
+    <ul class="menu-social">
+      <li><a href="https://github.com/jahidorjahid" target="_blank" rel="noopener" aria-label="Github"><i class="fa-brands fa-github"></i></a></li>
+      <li><a href="https://facebook.com/jahidorjahid" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+      <li><a href="https://linkedin.com/in/jahidorjahid" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li><a href="https://hashnode.com/@jahidhasan" target="_blank" rel="noopener" aria-label="Hashnode"><i class="fa-brands fa-hashnode"></i></a></li>
+    </ul>
+    <p class="menu-copy">Copyright © <span data-year></span> Jahid Hasan, All rights Reserved.</p>
+  </div>
+
+  <div class="stack" data-stack>
+    <section class="page active" data-page="post">
+      <article class="post">
+        <a class="back-link" href="../#blog"><i class="fa-solid fa-arrow-left"></i>Back to Blogs</a>
+
+        <header class="post-header">
+          <span class="blog-cat">JavaScript</span>
+          <h1>Discover Incredible Tricks with JavaScript</h1>
+          <div class="post-meta">
+            <span class="author"><img src="../assets/images/profile.jpg" alt="" width="36" height="36">Jahid Hasan</span>
+            <span><i class="fa-regular fa-calendar"></i><time datetime="2023-10-09">October 9, 2023</time></span>
+            <span><i class="fa-regular fa-clock"></i><span data-reading-time>6 min read</span></span>
+          </div>
+        </header>
+
+        <figure class="post-cover">
+          <img src="../assets/images/work/blog-js-tricks.svg" alt="JavaScript tricks" width="800" height="600">
+        </figure>
+
+        <div class="post-body" data-post-body>
+          <p>
+            JavaScript has grown a lot in the last few years. Many patterns that used to take five lines of
+            defensive code now fit in one readable expression. In this post I'll share the tricks I reach for
+            almost every day — small things that make code <strong>shorter, safer and easier to read</strong>.
+          </p>
+
+          <h2>1. Optional chaining <code>?.</code></h2>
+          <p>
+            Reading a deeply nested property used to mean checking every level by hand. Optional chaining stops
+            and returns <code>undefined</code> as soon as it meets <code>null</code> or <code>undefined</code>.
+          </p>
+<pre><code class="language-javascript">const user = { profile: { address: null } };
+
+// Before
+const city = user && user.profile && user.profile.address && user.profile.address.city;
+
+// After
+const city2 = user?.profile?.address?.city; // undefined, no crash
+
+// It works for method calls and array indexes too
+user.sayHello?.();          // only called if it exists
+const first = user.orders?.[0];</code></pre>
+
+          <h2>2. Nullish coalescing <code>??</code></h2>
+          <p>
+            The classic <code>value || 'default'</code> has a hidden bug: it replaces <em>every</em> falsy value,
+            including <code>0</code>, <code>''</code> and <code>false</code>. The <code>??</code> operator only falls
+            back when the value is <code>null</code> or <code>undefined</code>.
+          </p>
+<pre><code class="language-javascript">const settings = { volume: 0, title: '' };
+
+settings.volume || 50; // 50  ❌ the user chose 0!
+settings.volume ?? 50; // 0   ✅
+
+settings.title ?? 'Untitled'; // ''  (kept, because it's not null/undefined)</code></pre>
+
+          <h2>3. Logical assignment operators</h2>
+          <p>
+            <code>||=</code>, <code>&amp;&amp;=</code> and <code>??=</code> combine a check and an assignment.
+            They're perfect for setting defaults on objects.
+          </p>
+<pre><code class="language-javascript">const options = { retries: 0 };
+
+options.retries ??= 3;     // stays 0
+options.timeout ??= 5000;  // set to 5000
+options.cache ||= new Map();</code></pre>
+
+          <h2>4. Destructuring with defaults and renaming</h2>
+          <p>Pull exactly what you need out of an object, rename it, and give it a default — in one line.</p>
+<pre><code class="language-javascript">function createUser({ name, role: userRole = 'guest', ...rest }) {
+  return { name, userRole, rest };
+}
+
+createUser({ name: 'Jahid', age: 24 });
+// { name: 'Jahid', userRole: 'guest', rest: { age: 24 } }
+
+// Swap two variables without a temp variable
+let a = 1, b = 2;
+[a, b] = [b, a]; // a = 2, b = 1</code></pre>
+
+          <h2>5. Remove duplicates with <code>Set</code></h2>
+          <p>A <code>Set</code> only stores unique values, so turning an array into a Set and back removes duplicates.</p>
+<pre><code class="language-javascript">const tags = ['js', 'react', 'js', 'node', 'react'];
+const unique = [...new Set(tags)]; // ['js', 'react', 'node']
+
+// Unique objects by a key
+const users = [{ id: 1 }, { id: 2 }, { id: 1 }];
+const byId = [...new Map(users.map((u) =&gt; [u.id, u])).values()];</code></pre>
+
+          <h2>6. Transform objects with <code>Object.entries</code> and <code>Object.fromEntries</code></h2>
+          <p>
+            Arrays have <code>map</code> and <code>filter</code>; objects don't. Convert to entries, use the array
+            methods, then convert back.
+          </p>
+<pre><code class="language-javascript">const prices = { apple: 1.2, mango: 2.5, banana: 0.5 };
+
+const discounted = Object.fromEntries(
+  Object.entries(prices)
+    .filter(([, price]) =&gt; price &gt; 1)
+    .map(([fruit, price]) =&gt; [fruit, +(price * 0.9).toFixed(2)])
+);
+// { apple: 1.08, mango: 2.25 }</code></pre>
+
+          <h2>7. Dynamic (computed) property names</h2>
+<pre><code class="language-javascript">const field = 'email';
+const form = { [field]: 'jahidorjahid@gmail.com', [`${field}Verified`]: true };
+// { email: 'jahidorjahid@gmail.com', emailVerified: true }</code></pre>
+
+          <h2>8. Generate arrays quickly</h2>
+<pre><code class="language-javascript">Array.from({ length: 5 }, (_, i) =&gt; i * 2); // [0, 2, 4, 6, 8]
+
+[[1, 2], [3, [4, 5]]].flat(Infinity);     // [1, 2, 3, 4, 5]
+
+[1, 2, 3].at(-1);                          // 3 — last item, no length math</code></pre>
+
+          <h2>9. Readable numbers and quick conversions</h2>
+<pre><code class="language-javascript">const budget = 1_000_000;      // numeric separators — same as 1000000
+
++'42';           // 42   (string → number)
+String(42);      // '42' (number → string)
+!!'hello';       // true (any value → boolean)
+Math.trunc(4.9); // 4</code></pre>
+
+          <h2>10. Short-circuit for conditional rendering and calls</h2>
+          <p>Especially handy in React components:</p>
+<pre><code class="language-javascript">isLoggedIn &amp;&amp; showDashboard();
+
+// In JSX
+{items.length &gt; 0 &amp;&amp; &lt;List items={items} /&gt;}</code></pre>
+
+          <div class="callout">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p>
+              Watch out: <code>{items.length &amp;&amp; &lt;List /&gt;}</code> renders a literal <code>0</code> when the
+              array is empty. Compare explicitly with <code>&gt; 0</code> as above.
+            </p>
+          </div>
+
+          <h2>Wrapping up</h2>
+          <p>None of these tricks are magic, but together they remove a lot of noise from everyday code:</p>
+          <ul>
+            <li>Use <code>?.</code> and <code>??</code> to handle missing data safely.</li>
+            <li>Use destructuring and logical assignment for clean defaults.</li>
+            <li>Use <code>Set</code>, <code>Map</code> and <code>Object.fromEntries</code> for quick data transforms.</li>
+          </ul>
+          <blockquote>Clean code isn't about being clever — it's about making the next reader's job easy.</blockquote>
+          <p>Which of these do you use the most? Let me know — and happy coding! 🚀</p>
+        </div>
+
+        <footer class="post-footer">
+          <ul class="tags">
+            <li>#javascript</li><li>#es6</li><li>#webdev</li><li>#tips</li>
+          </ul>
+          <div class="share">
+            <span>Share:</span>
+            <a href="#" data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" data-share="linkedin" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" data-share="x" target="_blank" rel="noopener" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" data-share="copy" aria-label="Copy link"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </footer>
+
+        <aside class="author-box">
+          <img src="../assets/images/profile.jpg" alt="Jahid Hasan" width="96" height="96">
+          <div>
+            <h4>Jahid Hasan</h4>
+            <p class="role">Full-Stack Web Developer</p>
+            <p>I build modern web applications with React.js, Node.js and MongoDB, and write about the JavaScript I learn along the way.</p>
+            <div class="author-links">
+              <a href="https://github.com/jahidorjahid" target="_blank" rel="noopener" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com/in/jahidorjahid" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://hashnode.com/@jahidhasan" target="_blank" rel="noopener" aria-label="Hashnode"><i class="fa-brands fa-hashnode"></i></a>
+            </div>
+          </div>
+        </aside>
+
+        <nav class="post-nav" aria-label="More posts">
+          <a class="next" href="promise-awaiting.html">
+            <span>Next post <i class="fa-solid fa-arrow-right"></i></span>
+            <strong>Promise Awaiting</strong>
+          </a>
+        </nav>
+      </article>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

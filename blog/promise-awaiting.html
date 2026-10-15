@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise Awaiting — Jahid Hasan</title>
+  <meta name="description" content="Understand JavaScript Promises and async/await: error handling, running tasks in parallel, Promise.all, allSettled, race, any, and the most common mistakes.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Promise Awaiting">
+  <meta property="og:description" content="Understand JavaScript Promises and async/await, and handle asynchronous code with confidence.">
+  <meta property="og:image" content="../assets/images/work/blog-promise.svg">
+  <link rel="icon" href="../assets/images/avatar.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body data-active-nav="blog">
+  <div class="progress" aria-hidden="true"><span data-progress></span></div>
+
+  <a href="../" class="badge" data-nav="home" aria-label="Home">JH</a>
+  <button class="menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="switcher" data-switcher>
+    <button class="switcher-toggle" data-switcher-toggle aria-label="Theme colors"><i class="fa-solid fa-gear"></i></button>
+    <div class="switcher-panel">
+      <p>Accent color</p>
+      <div class="swatches">
+        <button style="--c:#f4a641" data-color="#f4a641" aria-label="Gold"></button>
+        <button style="--c:#2ec4b6" data-color="#2ec4b6" aria-label="Teal"></button>
+        <button style="--c:#ff6b6b" data-color="#ff6b6b" aria-label="Coral"></button>
+        <button style="--c:#8e7cf0" data-color="#8e7cf0" aria-label="Violet"></button>
+        <button style="--c:#4aa3ff" data-color="#4aa3ff" aria-label="Blue"></button>
+        <button style="--c:#7bc74d" data-color="#7bc74d" aria-label="Green"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu" data-menu>
+    <nav class="menu-nav">
+      <a href="../" data-nav="home"><i class="fa-solid fa-house"></i><span>Home</span></a>
+      <a href="../#about" data-nav="about"><i class="fa-solid fa-user"></i><span>About</span></a>
+      <a href="../#resume" data-nav="resume"><i class="fa-solid fa-address-card"></i><span>Resume</span></a>
+      <a href="../#portfolio" data-nav="portfolio"><i class="fa-solid fa-briefcase"></i><span>Portfolio</span></a>
+      <a href="../#blog" data-nav="blog"><i class="fa-solid fa-book"></i><span>Blog</span></a>
+      <a href="../#contact" data-nav="contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+    </nav>
+    <ul class="menu-social">
+      <li><a href="https://github.com/jahidorjahid" target="_blank" rel="noopener" aria-label="Github"><i class="fa-brands fa-github"></i></a></li>
+      <li><a href="https://facebook.com/jahidorjahid" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+      <li><a href="https://linkedin.com/in/jahidorjahid" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+      <li><a href="https://hashnode.com/@jahidhasan" target="_blank" rel="noopener" aria-label="Hashnode"><i class="fa-brands fa-hashnode"></i></a></li>
+    </ul>
+    <p class="menu-copy">Copyright © <span data-year></span> Jahid Hasan, All rights Reserved.</p>
+  </div>
+
+  <div class="stack" data-stack>
+    <section class="page active" data-page="post">
+      <article class="post">
+        <a class="back-link" href="../#blog"><i class="fa-solid fa-arrow-left"></i>Back to Blogs</a>
+
+        <header class="post-header">
+          <span class="blog-cat">JavaScript</span>
+          <h1>Promise Awaiting</h1>
+          <div class="post-meta">
+            <span class="author"><img src="../assets/images/profile.jpg" alt="" width="36" height="36">Jahid Hasan</span>
+            <span><i class="fa-regular fa-calendar"></i><time datetime="2022-07-22">July 22, 2022</time></span>
+            <span><i class="fa-regular fa-clock"></i><span data-reading-time>6 min read</span></span>
+          </div>
+        </header>
+
+        <figure class="post-cover">
+          <img src="../assets/images/work/blog-promise.svg" alt="Promises and async/await" width="800" height="600">
+        </figure>
+
+        <div class="post-body" data-post-body>
+          <p>
+            Fetching data, reading files, waiting for a timer — almost everything interesting in JavaScript is
+            <strong>asynchronous</strong>. Promises and <code>async/await</code> are the tools that make that code
+            readable. In this post we'll walk through how they work, how to handle errors, and how to avoid the
+            mistakes that trip up most developers (including me!).
+          </p>
+
+          <h2>What is a Promise?</h2>
+          <p>
+            A Promise is an object that represents a value you'll have <em>later</em>. It's always in one of three
+            states:
+          </p>
+          <ul>
+            <li><strong>pending</strong> — the work is still happening,</li>
+            <li><strong>fulfilled</strong> — it finished with a value,</li>
+            <li><strong>rejected</strong> — it failed with an error.</li>
+          </ul>
+<pre><code class="language-javascript">const wait = (ms) =&gt; new Promise((resolve) =&gt; setTimeout(resolve, ms));
+
+const coinFlip = new Promise((resolve, reject) =&gt; {
+  Math.random() &gt; 0.5 ? resolve('Heads!') : reject(new Error('Tails...'));
+});
+
+coinFlip
+  .then((result) =&gt; console.log(result))
+  .catch((error) =&gt; console.error(error.message))
+  .finally(() =&gt; console.log('Flip finished'));</code></pre>
+
+          <h2>From <code>.then()</code> chains to <code>async/await</code></h2>
+          <p>
+            Chaining <code>.then()</code> works, but long chains get hard to follow. An <code>async</code> function
+            lets you <code>await</code> a Promise and write the code top to bottom, as if it were synchronous.
+          </p>
+<pre><code class="language-javascript">// With .then()
+function getUserPosts(id) {
+  return fetch(`/api/users/${id}`)
+    .then((res) =&gt; res.json())
+    .then((user) =&gt; fetch(`/api/posts?author=${user.name}`))
+    .then((res) =&gt; res.json());
+}
+
+// With async/await
+async function getUserPosts2(id) {
+  const user = await fetch(`/api/users/${id}`).then((res) =&gt; res.json());
+  const res = await fetch(`/api/posts?author=${user.name}`);
+  return res.json();
+}</code></pre>
+          <div class="callout">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>An <code>async</code> function <strong>always</strong> returns a Promise — even if you return a plain value from it.</p>
+          </div>
+
+          <h2>Handling errors</h2>
+          <p>
+            With <code>await</code>, a rejected Promise throws, so you handle it with a normal
+            <code>try/catch</code>. Remember that <code>fetch</code> only rejects on network failures — a 404 or 500
+            is still a "successful" response, so check <code>res.ok</code>.
+          </p>
+<pre><code class="language-javascript">async function loadProducts() {
+  try {
+    const res = await fetch('/api/products');
+    if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+    return await res.json();
+  } catch (error) {
+    console.error(error);
+    return []; // sensible fallback
+  } finally {
+    hideSpinner();
+  }
+}</code></pre>
+
+          <h2>Sequential vs parallel</h2>
+          <p>
+            This is the mistake I see most often. If two requests don't depend on each other, awaiting them one by
+            one makes the user wait for both, back to back.
+          </p>
+<pre><code class="language-javascript">// ❌ Sequential: ~2 seconds total
+const users = await getUsers();     // 1s
+const products = await getProducts(); // 1s
+
+// ✅ Parallel: ~1 second total
+const [users2, products2] = await Promise.all([getUsers(), getProducts()]);</code></pre>
+
+          <h2>The Promise combinators</h2>
+          <h3><code>Promise.all</code> — all or nothing</h3>
+          <p>Resolves with every result in order, but rejects as soon as <em>one</em> Promise rejects.</p>
+
+          <h3><code>Promise.allSettled</code> — I want every result</h3>
+<pre><code class="language-javascript">const results = await Promise.allSettled([getUsers(), getProducts(), getOrders()]);
+
+results.forEach((r) =&gt; {
+  if (r.status === 'fulfilled') console.log(r.value);
+  else console.warn('Failed:', r.reason);
+});</code></pre>
+
+          <h3><code>Promise.race</code> — first to finish wins</h3>
+          <p>Great for adding a timeout to any request:</p>
+<pre><code class="language-javascript">const timeout = (ms) =&gt;
+  new Promise((_, reject) =&gt; setTimeout(() =&gt; reject(new Error('Timed out')), ms));
+
+const data = await Promise.race([fetch('/api/slow'), timeout(5000)]);</code></pre>
+
+          <h3><code>Promise.any</code> — first success wins</h3>
+          <p>Ignores rejections until <em>every</em> Promise has failed — useful for trying several mirrors.</p>
+<pre><code class="language-javascript">const fastest = await Promise.any([
+  fetch('https://mirror-1.example.com/file'),
+  fetch('https://mirror-2.example.com/file'),
+]);</code></pre>
+
+          <h2>Common mistakes</h2>
+          <h3>1. <code>await</code> inside <code>forEach</code></h3>
+          <p><code>forEach</code> doesn't wait for async callbacks, so the code after it runs too early.</p>
+<pre><code class="language-javascript">// ❌ "Done" is logged before any order is saved
+orders.forEach(async (order) =&gt; { await saveOrder(order); });
+console.log('Done');
+
+// ✅ One at a time
+for (const order of orders) {
+  await saveOrder(order);
+}
+
+// ✅ All at once
+await Promise.all(orders.map((order) =&gt; saveOrder(order)));</code></pre>
+
+          <h3>2. Forgetting to <code>await</code></h3>
+<pre><code class="language-javascript">const user = getUser(1);   // ❌ a Promise, not a user
+console.log(user.name);    // undefined
+
+const user2 = await getUser(1); // ✅</code></pre>
+
+          <h3>3. Unhandled rejections</h3>
+          <p>
+            Every Promise chain should end with a <code>.catch()</code> or sit inside a <code>try/catch</code>.
+            Otherwise errors disappear silently in the browser or crash your Node.js process.
+          </p>
+
+          <h2>Wrapping up</h2>
+          <ul>
+            <li>A Promise is a value that will be ready later: pending, fulfilled or rejected.</li>
+            <li><code>async/await</code> makes async code read top to bottom; use <code>try/catch</code> for errors.</li>
+            <li>Run independent work in parallel with <code>Promise.all</code> or <code>Promise.allSettled</code>.</li>
+            <li>Never <code>await</code> inside <code>forEach</code> — use <code>for...of</code> or <code>Promise.all</code>.</li>
+          </ul>
+          <blockquote>Don't just await everything — decide what can happen at the same time.</blockquote>
+          <p>Thanks for reading! If this helped, share it with a friend who's fighting with Promises. 🙌</p>
+        </div>
+
+        <footer class="post-footer">
+          <ul class="tags">
+            <li>#javascript</li><li>#async</li><li>#promises</li><li>#webdev</li>
+          </ul>
+          <div class="share">
+            <span>Share:</span>
+            <a href="#" data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" data-share="linkedin" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" data-share="x" target="_blank" rel="noopener" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" data-share="copy" aria-label="Copy link"><i class="fa-solid fa-link"></i></a>
+          </div>
+        </footer>
+
+        <aside class="author-box">
+          <img src="../assets/images/profile.jpg" alt="Jahid Hasan" width="96" height="96">
+          <div>
+            <h4>Jahid Hasan</h4>
+            <p class="role">Full-Stack Web Developer</p>
+            <p>I build modern web applications with React.js, Node.js and MongoDB, and write about the JavaScript I learn along the way.</p>
+            <div class="author-links">
+              <a href="https://github.com/jahidorjahid" target="_blank" rel="noopener" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com/in/jahidorjahid" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://hashnode.com/@jahidhasan" target="_blank" rel="noopener" aria-label="Hashnode"><i class="fa-brands fa-hashnode"></i></a>
+            </div>
+          </div>
+        </aside>
+
+        <nav class="post-nav" aria-label="More posts">
+          <a class="prev" href="discover-incredible-tricks-with-javascript.html">
+            <span><i class="fa-solid fa-arrow-left"></i> Previous post</span>
+            <strong>Discover Incredible Tricks with JavaScript</strong>
+          </a>
+        </nav>
+      </article>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
