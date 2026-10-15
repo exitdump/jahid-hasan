@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f3f40"/>
+      <stop offset="1" stop-color="#1e1e1f"/>
+    </linearGradient>
+    <linearGradient id="t" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffdb70"/>
+      <stop offset="1" stop-color="#ffbb5c"/>
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="36" fill="url(#g)"/>
+  <text x="80" y="100" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="58" font-weight="600" fill="url(#t)">JH</text>
+</svg>

@@ -3,133 +3,434 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Personal Website</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <script src="https://kit.fontawesome.com/b76ff54ceb.js" crossorigin="anonymous"></script>
-</head>
-<body class="font-mono" >
-  <header class="bg-gray-900 text-white py-4">
-    <nav class="container px-2 mx-auto flex justify-between items-end font-mono" >
-      <a href="/jahid-hasan" class="text-3xl fon font-bold">.jahid</a>
-      <ul class="flex items-center gap-2">
-        <li>
-          <a href="#home" class="text-lg hover:text-gray-300"><span class="opacity-40">\</span>home
-          </a>
-        </li>
-        <li>
-            <a href="#projects" class="text-lg hover:text-gray-300"><span class="opacity-40">\</span>projects</a>
-          </li>
-        <li>
-          <a href="#blogs" class="text-lg hover:text-gray-300"><span class="opacity-40">\</span>blogs</a>
-        </li>
-        <li>
-          <a href="#about" class="text-lg hover:text-gray-300"><span class="opacity-40">\</span>about</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section id="home" class="bg-white py-12">
-      <div class="container mx-auto p-4">
-        <div class="flex flex-col items-center">
-          <img src="https://picsum.photos/200/300" alt="Profile Picture" class="w-32 h-32 rounded-full mb-4">
-          <h1 class="text-4xl font-sans font-bold mb-2">Jahid Hasan</h1>
-          <p class="text-lg mb-4">Web Developer</p>
-          <div class="flex items-center mb-4">
-              <a href="/jahid-hasan/media/jahid-hasan-resume.pdf" class="border font-bold hover:opacity-50 px-2 py-1">
-                <span class="text-green-400">get</span><span class="text-blue-500">(</span><span class="text-indigo-600">resume</span><span class="text-blue-500">)</span>
-              </a>
-              <a href="https://github.com/jahidorjahid" class="border font-bold px-2 py-1 hover:opacity-50">
-                  <i class="fa-brands fa-square-github"></i>
-                  <span>Github</span>
-              </a>
-              <a href="https://hashnode.com/@jahidhasan" class="border font-bold px-2 py-1 hover:opacity-50">
-                <i class="fa-brands fa-hashnode text-blue-600"></i>
-                <span>hashnode</span>
-              </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="projects" class="bg-gray-100 py-12">
-      <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4 font-sans"><span class="opacity-40">\</span> Projects</h1>
-        <ul class="list-disc">
-            <li class="ml-10 mb-4 p-2">
-                <a href="https://github.com/jahidorjahid/wood-bazar-client-side" class="hover:text-purple-600">
-                    <h2 class="hover:text-purple-600 text-lg font-bold">WOOD BAZAR (FURNITURE)</h2>
-                </a>
-                <p class="text-md">22-Jul-2021</p>
-            </li>
-            <li class="ml-10 mb-4 p-2">
-                <a href="https://github.com/jahidorjahid/travely-client-side" class="hover:text-purple-600">
-                    <h2 class="hover:text-purple-600 text-lg font-bold">TRAVELY (TOURISM)</h2>
-                </a>
-                <p class="text-md">14-Feb-2021</p>
-            </li>
-            <li class="ml-10 mb-4 p-2">
-                <a href="https://github.com/jahidorjahid/health-care-client-side" class="hover:text-purple-600">
-                    <h2 class="hover:text-purple-600 text-lg font-bold">HEALTH CARE (HEALTH)</h2>
-                </a>
-                <p class="text-md">10-Jan-2021</p>
-            </li>
-        </ul>
-      </div>
-    </section>
-    <section id="blogs" class="bg-white py-12">
-      <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold font-sans mb-4"><span class="opacity-40">\</span> Blogs</h1>
-        <ul class="list-disc">
-            <li class="ml-10 mb-4">
-                <a href="https://jahidhasan.hashnode.dev/discover-incredible-tricks-with-javascript" class="hover:text-blue-600">
-                    <h2 class="text-lg font-bold">Discover Incredible Tricks with JavaScript</h2>
-                </a>
-                <p class="text-md">09-Oct-2023</p>
-              </li>
-              <li class="ml-10 mb-4">
-                <a href="" class="hover:text-blue-600">
-                    <h2 class="text-lg font-bold">Promise Awaiting</h2>
-                </a>
-                <p class="text-md">22-Jul-2022</p>
-              </li>
-        </ul>
-      </div>
-    </section>
-    <section id="about" class="bg-gray-100 py-12">
-      <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold font-sans mb-4"><span class="opacity-40">\</span> About Me</h1>
-        <p class="text-lg">I'm a developer with a passion for building innovative solutions.</p>
-      </div>
-    </section>
-  </main>
-  <footer class="bg-gray-900 text-white py-2 text-center">
-    <div class="container mx-auto p-2">
-      <div class="flex justify-center mx-auto">
-        <a href="mailto:jahidorjahid@gmail.com" title="Contact Me" class="opacity-50 px-2 py-1">
-          <i class="fa-regular fa-envelope-open text-purple-600"></i>
-          <span>Email</span>
-        </a>
-        <a href="https://facebook.com/jahidorjahid" title="Follow Me on Facebook" class="px-2 py-1 opacity-50">
-          <i class="fa-brands fa-square-facebook text-mute text-blue-500"></i>
-          <span>Facebook</span>
-          </a>
-        <a href="https://github.com/jahidorjahid" title="Follow Me on Github" class="px-2 py-1 opacity-50">
-            <i class="fa-brands fa-square-github text-purple-600"></i>
-            <span>Github</span>
-        </a>
-        <a href="https://linkedin.com/in/jahidorjahid" title="Follow Me on LinkedIn" class="px-2 py-1 opacity-50">
-          <i class="fa-brands fa-linkedin text-blue-600"></i>
-          <span>LinkedIn</span>
-        </a>
-      </div>
-      <hr class="w-4/5 opacity-50 my-2 mx-auto">
-      <p class="text-md">designed by self()</p>
-    </div>
-  </footer>
+  <title>Jahid Hasan — Web Developer</title>
+  <meta name="description" content="Jahid Hasan — Web Developer. Portfolio, resume, projects, blog and contact.">
+  <link rel="icon" href="assets/images/avatar.svg" type="image/svg+xml">
 
-  <!-- <script>
-    const screenWidth = window.innerWidth;
-    alert('Screen width: ' + screenWidth);
-  </script> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <main>
+
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar" data-sidebar>
+      <div class="sidebar-info">
+        <figure class="avatar-box">
+          <img src="assets/images/avatar.svg" alt="Jahid Hasan" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Jahid Hasan">Jahid Hasan</h1>
+          <p class="title">Web Developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box"><i class="fa-regular fa-envelope"></i></div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:jahidorjahid@gmail.com" class="contact-link">jahidorjahid@gmail.com</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><i class="fa-brands fa-github"></i></div>
+            <div class="contact-info">
+              <p class="contact-title">Github</p>
+              <a href="https://github.com/jahidorjahid" class="contact-link" target="_blank" rel="noopener">@jahidorjahid</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><i class="fa-regular fa-file-lines"></i></div>
+            <div class="contact-info">
+              <p class="contact-title">Resume</p>
+              <a href="media/jahid-hasan-resume.pdf" class="contact-link" target="_blank" rel="noopener">Download CV</a>
+            </div>
+          </li>
+          <li class="contact-item">
+            <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Dhaka, Bangladesh</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li><a href="https://facebook.com/jahidorjahid" class="social-link" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+          <li><a href="https://linkedin.com/in/jahidorjahid" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+          <li><a href="https://github.com/jahidorjahid" class="social-link" target="_blank" rel="noopener" aria-label="Github"><i class="fa-brands fa-github"></i></a></li>
+          <li><a href="https://hashnode.com/@jahidhasan" class="social-link" target="_blank" rel="noopener" aria-label="Hashnode"><i class="fa-brands fa-hashnode"></i></a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <div class="main-content">
+
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
+        </ul>
+      </nav>
+
+      <!-- ===== ABOUT ===== -->
+      <article class="about active" data-page="about">
+        <header><h2 class="h2 article-title">About me</h2></header>
+
+        <section class="about-text">
+          <p>
+            I'm Jahid Hasan, a web developer from Bangladesh who loves turning ideas into fast, clean and
+            accessible websites and web applications. I enjoy working across the stack — from crafting
+            pixel-perfect interfaces with modern JavaScript to building the APIs and databases that power them.
+          </p>
+          <p>
+            My goal is to build products that are not only functional but also enjoyable to use. I write about
+            what I learn on Hashnode and I'm always exploring new tools and patterns to write better code.
+          </p>
+        </section>
+
+        <!-- service -->
+        <section class="service">
+          <h3 class="h3 service-title">What I'm doing</h3>
+          <ul class="service-list">
+            <li class="service-item">
+              <div class="service-icon-box"><i class="fa-solid fa-code"></i></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web Development</h4>
+                <p class="service-item-text">High-quality, responsive websites built with modern frameworks and best practices.</p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box"><i class="fa-solid fa-pen-nib"></i></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Web Design</h4>
+                <p class="service-item-text">Clean, modern interfaces designed with usability and accessibility in mind.</p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box"><i class="fa-solid fa-server"></i></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Backend &amp; APIs</h4>
+                <p class="service-item-text">REST APIs, authentication and databases with Node.js, Express and MongoDB.</p>
+              </div>
+            </li>
+            <li class="service-item">
+              <div class="service-icon-box"><i class="fa-solid fa-pen-to-square"></i></div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Technical Writing</h4>
+                <p class="service-item-text">Sharing practical JavaScript tips and tutorials with the developer community.</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- testimonials -->
+        <section class="testimonials">
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+          <ul class="testimonials-list has-scrollbar">
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <span class="initials-avatar" data-testimonials-avatar>RA</span>
+                </figure>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Rahim Ahmed</h4>
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>Jahid delivered our website on time and exactly as we imagined. Communication was smooth, and he paid close attention to every detail.</p>
+                </div>
+              </div>
+            </li>
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <span class="initials-avatar" data-testimonials-avatar>SK</span>
+                </figure>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Sara Khan</h4>
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>A reliable developer with strong JavaScript skills. He quickly understood our requirements and built a fast, responsive web app.</p>
+                </div>
+              </div>
+            </li>
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <span class="initials-avatar" data-testimonials-avatar>TH</span>
+                </figure>
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Tanvir Hossain</h4>
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>Great experience working together. Clean code, thoughtful suggestions and always ready to help after launch.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- testimonials modal -->
+        <div class="modal-container" data-modal-container>
+          <div class="overlay" data-overlay></div>
+          <section class="testimonials-modal">
+            <button class="modal-close-btn" data-modal-close-btn aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box"><span class="initials-avatar" data-modal-img>RA</span></figure>
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+            </div>
+            <div class="modal-content">
+              <h4 class="h3 modal-title" data-modal-title>Rahim Ahmed</h4>
+              <div data-modal-text></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- tech stack ("clients") -->
+        <section class="clients">
+          <h3 class="h3 clients-title">Tech Stack</h3>
+          <ul class="clients-list has-scrollbar">
+            <li class="clients-item"><span class="tech"><i class="fa-brands fa-html5"></i>HTML5</span></li>
+            <li class="clients-item"><span class="tech"><i class="fa-brands fa-css3-alt"></i>CSS3</span></li>
+            <li class="clients-item"><span class="tech"><i class="fa-brands fa-js"></i>JavaScript</span></li>
+            <li class="clients-item"><span class="tech"><i class="fa-brands fa-react"></i>React</span></li>
+            <li class="clients-item"><span class="tech"><i class="fa-brands fa-node-js"></i>Node.js</span></li>
+            <li class="clients-item"><span class="tech"><i class="fa-solid fa-database"></i>MongoDB</span></li>
+            <li class="clients-item"><span class="tech"><i class="fa-brands fa-git-alt"></i>Git</span></li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- ===== RESUME ===== -->
+      <article class="resume" data-page="resume">
+        <header><h2 class="h2 article-title">Resume</h2></header>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+            <h3 class="h3">Education</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Bachelor of Science in Computer Science</h4>
+              <span>2019 — Present</span>
+              <p class="timeline-text">Studying data structures, algorithms, databases and software engineering fundamentals.</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Complete Web Development Course</h4>
+              <span>2020 — 2021</span>
+              <p class="timeline-text">Intensive full-stack program covering HTML, CSS, JavaScript, React, Node.js, Express and MongoDB.</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Higher Secondary Certificate (HSC)</h4>
+              <span>2016 — 2018</span>
+              <p class="timeline-text">Science group, where my interest in programming and computers began.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box"><i class="fa-solid fa-briefcase"></i></div>
+            <h3 class="h3">Experience</h3>
+          </div>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Freelance Web Developer</h4>
+              <span>2021 — Present</span>
+              <p class="timeline-text">Building responsive websites and full-stack web apps for clients, from design to deployment.</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Technical Writer — Hashnode</h4>
+              <span>2022 — Present</span>
+              <p class="timeline-text">Writing articles about JavaScript tips, tricks and asynchronous programming.</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Open Source Projects</h4>
+              <span>2020 — Present</span>
+              <p class="timeline-text">Personal projects including Wood Bazar, Travely and Health Care, all available on Github.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="skill">
+          <h3 class="h3 skills-title">My skills</h3>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">HTML &amp; CSS</h5><data value="90">90%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">JavaScript</h5><data value="85">85%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">React</h5><data value="80">80%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper"><h5 class="h5">Node.js &amp; MongoDB</h5><data value="70">70%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 70%;"></div></div>
+            </li>
+          </ul>
+        </section>
+
+        <a href="media/jahid-hasan-resume.pdf" class="form-btn download-btn" target="_blank" rel="noopener">
+          <i class="fa-solid fa-download"></i><span>Download Resume</span>
+        </a>
+      </article>
+
+      <!-- ===== PORTFOLIO ===== -->
+      <article class="portfolio" data-page="portfolio">
+        <header><h2 class="h2 article-title">Portfolio</h2></header>
+
+        <section class="projects">
+          <ul class="filter-list">
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>Web development</button></li>
+            <li class="filter-item"><button data-filter-btn>Web design</button></li>
+          </ul>
+
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-icon"><i class="fa-solid fa-chevron-down"></i></div>
+            </button>
+            <ul class="select-list">
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Web development</button></li>
+              <li class="select-item"><button data-select-item>Web design</button></li>
+            </ul>
+          </div>
+
+          <ul class="project-list">
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="https://github.com/jahidorjahid/wood-bazar-client-side" target="_blank" rel="noopener">
+                <figure class="project-img thumb thumb-1">
+                  <i class="fa-solid fa-couch thumb-icon"></i>
+                  <div class="project-item-icon-box"><i class="fa-regular fa-eye"></i></div>
+                </figure>
+                <h3 class="project-title">Wood Bazar</h3>
+                <p class="project-category">Web development · Furniture</p>
+              </a>
+            </li>
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="https://github.com/jahidorjahid/travely-client-side" target="_blank" rel="noopener">
+                <figure class="project-img thumb thumb-2">
+                  <i class="fa-solid fa-plane-departure thumb-icon"></i>
+                  <div class="project-item-icon-box"><i class="fa-regular fa-eye"></i></div>
+                </figure>
+                <h3 class="project-title">Travely</h3>
+                <p class="project-category">Web development · Tourism</p>
+              </a>
+            </li>
+            <li class="project-item active" data-filter-item data-category="web development">
+              <a href="https://github.com/jahidorjahid/health-care-client-side" target="_blank" rel="noopener">
+                <figure class="project-img thumb thumb-3">
+                  <i class="fa-solid fa-heart-pulse thumb-icon"></i>
+                  <div class="project-item-icon-box"><i class="fa-regular fa-eye"></i></div>
+                </figure>
+                <h3 class="project-title">Health Care</h3>
+                <p class="project-category">Web development · Health</p>
+              </a>
+            </li>
+            <li class="project-item active" data-filter-item data-category="web design">
+              <a href="https://github.com/jahidorjahid/jahid-hasan" target="_blank" rel="noopener">
+                <figure class="project-img thumb thumb-4">
+                  <i class="fa-solid fa-id-card thumb-icon"></i>
+                  <div class="project-item-icon-box"><i class="fa-regular fa-eye"></i></div>
+                </figure>
+                <h3 class="project-title">Personal vCard</h3>
+                <p class="project-category">Web design · Portfolio</p>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- ===== BLOG ===== -->
+      <article class="blog" data-page="blog">
+        <header><h2 class="h2 article-title">Blog</h2></header>
+
+        <section class="blog-posts">
+          <ul class="blog-posts-list">
+            <li class="blog-post-item">
+              <a href="https://jahidhasan.hashnode.dev/discover-incredible-tricks-with-javascript" target="_blank" rel="noopener">
+                <figure class="blog-banner-box thumb thumb-5"><i class="fa-brands fa-js thumb-icon"></i></figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">JavaScript</p>
+                    <span class="dot"></span>
+                    <time datetime="2023-10-09">Oct 09, 2023</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Discover Incredible Tricks with JavaScript</h3>
+                  <p class="blog-text">A collection of handy JavaScript tricks that make everyday code shorter, cleaner and easier to read.</p>
+                </div>
+              </a>
+            </li>
+            <li class="blog-post-item">
+              <a href="https://jahidhasan.hashnode.dev" target="_blank" rel="noopener">
+                <figure class="blog-banner-box thumb thumb-6"><i class="fa-solid fa-hourglass-half thumb-icon"></i></figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">JavaScript</p>
+                    <span class="dot"></span>
+                    <time datetime="2022-07-22">Jul 22, 2022</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Promise Awaiting</h3>
+                  <p class="blog-text">Understanding Promises and async/await, and how to handle asynchronous code with confidence.</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- ===== CONTACT ===== -->
+      <article class="contact" data-page="contact">
+        <header><h2 class="h2 article-title">Contact</h2></header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe src="https://www.google.com/maps?q=Dhaka,Bangladesh&output=embed"
+              width="400" height="300" loading="lazy" title="Map of Dhaka, Bangladesh"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+          <form class="form" data-form>
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <i class="fa-regular fa-paper-plane"></i>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </section>
+      </article>
+
+      <footer class="site-footer">© <span data-year></span> Jahid Hasan. All rights reserved.</footer>
+    </div>
+  </main>
+
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
