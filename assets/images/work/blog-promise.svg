@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a5cf0"/><stop offset="1" stop-color="#241c66"/></linearGradient></defs>
+<rect width="800" height="600" fill="url(#g)"/>
+<g fill="#fff" opacity=".08" font-family="Menlo,Consolas,monospace" font-size="26">
+<text x="40" y="70">const tricks = [...ideas];</text><text x="380" y="140">async () =&gt; await next()</text>
+<text x="60" y="520">arr.map(x =&gt; x * 2)</text><text x="420" y="560">{ ...spread }</text><text x="30" y="300">?.  ??  ||=</text><text x="560" y="330">=&gt;</text></g>
+<text x="400.0" y="340.0" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="150" fill="#fff">await</text>
+<text x="400.0" y="400.0" text-anchor="middle" font-family="Arial,sans-serif" letter-spacing="6" font-size="22" fill="#fff" opacity=".85">PROMISES &amp; ASYNC</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 540" width="700" height="540">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4b65a"/><stop offset="1" stop-color="#3a3b42"/></linearGradient>
+<linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3b42"/><stop offset="1" stop-color="#f4b65a"/></linearGradient>
+<filter id="s" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-opacity=".35"/></filter></defs>
+<rect width="700" height="540" fill="url(#bg)"/>
+<circle cx="630.0" cy="54.0" r="210.0" fill="#fff" opacity=".07"/><circle cx="35.0" cy="513.0" r="175.0" fill="#000" opacity=".08"/>
+<g filter="url(#s)"><rect x="60" y="60" width="580" height="410" rx="14" fill="#fafafa"/></g>
+<rect x="60" y="60" width="580" height="40" rx="14" fill="#ececec"/><rect x="60" y="86" width="580" height="14" fill="#ececec"/>
+<circle cx="82" cy="80" r="6" fill="#ff5f57"/><circle cx="102" cy="80" r="6" fill="#febc2e"/><circle cx="122" cy="80" r="6" fill="#28c840"/>
+<rect x="150" y="71" width="290.0" height="18" rx="9" fill="#fff"/>
+<rect x="90" y="130" width="520" height="310" rx="12" fill="url(#hero)"/><text x="350.0" y="269.5" text-anchor="middle" font-family="Georgia,serif" font-size="49" font-weight="700" fill="#fff">Jahid Hasan</text><text x="350.0" y="309.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" letter-spacing="4" fill="#fff" opacity=".85">WEB DEVELOPER</text><rect x="280.0" y="339.5" width="140" height="36" rx="18" fill="#fff" opacity=".95"/><rect x="310.0" y="353.5" width="80" height="8" rx="4" fill="#3a3b42"/>
+</svg>
